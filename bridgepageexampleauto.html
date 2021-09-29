@@ -1,0 +1,131 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+  <script>
+    // Singular Tracking Link Settings
+    var auto = 'false';
+    var baselink = 'https://singularassist.sng.link/A59c0/7yfo';
+    var deeplink = 'singularassist://Deep_Link';
+    var deferred_deeplink = 'singularassist://DDL_Link';
+    var fallback_url = 'https://www.singular.net';
+    var aos_link = 'https://play.google.com/store/apps/details?id=net.singular.deviceassist&hl=en_US&gl=US';
+    var ios_link = 'https://apps.apple.com/us/app/singular-device-assist/id1441750662';
+    
+    if (baselink) {
+      var current_url = new URL(document.URL);
+      var urlParams = new URLSearchParams(current_url.search);
+      var newParams = new URLSearchParams();
+      var singular_link = '';
+      
+      // Link Properties
+      if (deeplink) {
+        newParams.append('_dl',deeplink);  
+      }
+      if (deferred_deeplink) {
+        newParams.append('_ddl',deferred_deeplink);  
+      }
+      if (fallback_url) {
+        newParams.append('_fallback_redirect',fallback_url);  
+      }
+      if (urlParams.has('_p')){
+        newParams.append('_p',urlParams.get('_p'));
+      }
+            
+      //Campaign Properties
+      if (urlParams.has('_smtype')){
+        newParams.append('_smtype',urlParams.get('_smtype'));
+      }
+      if (urlParams.has('pcn')){
+        newParams.append('pcn',urlParams.get('pcn'));
+      }
+      if (urlParams.has('pcid')){
+        newParams.append('pcid',urlParams.get('pcid'));
+      }
+      if (urlParams.has('pscn')){
+        newParams.append('pscn',urlParams.get('pscn'));
+      }
+      if (urlParams.has('pscid')){
+        newParams.append('pscid',urlParams.get('pscid'));
+      }
+      if (urlParams.has('pcrn')){
+        newParams.append('pcrn',urlParams.get('pcrn'));
+      }
+      if (urlParams.has('pcrid')){
+        newParams.append('pcrid',urlParams.get('pcrid'));
+      }
+      if (urlParams.has('pshid')){
+        newParams.append('pshid',urlParams.get('pshid'));
+      }
+      if (urlParams.has('psn')){
+        newParams.append('psn',urlParams.get('psn'));
+      }
+      if (urlParams.has('psid')){
+        newParams.append('psid',urlParams.get('psid'));
+      }
+      if (urlParams.has('pssn')){
+        newParams.append('pssn',urlParams.get('pssn'));
+      }
+      if (urlParams.has('pssid')){
+        newParams.append('pssid',urlParams.get('pssid'));
+      }
+      if (urlParams.has('kw')){
+        newParams.append('kw',urlParams.get('kw'));
+      }
+      if (urlParams.has('paffn')){
+        newParams.append('paffn',urlParams.get('paffn'));
+      }
+      if (urlParams.has('paffid')){
+        newParams.append('paffid',urlParams.get('paffid'));
+      }
+      if (urlParams.has('aifa')){
+        newParams.append('aifa',urlParams.get('aifa'));
+      }
+      if (urlParams.has('idfa')){
+        newParams.append('idfa',urlParams.get('idfa'));
+      }
+      if (urlParams.has('cl')){
+        newParams.append('cl',urlParams.get('cl'));
+      }
+      if (urlParams.has('auto')){
+        auto = urlParams.get('auto');
+      }
+      
+      // Set Singular Tracking Link
+      singular_link = baselink+'?'+newParams.toString()+'&_forward_params=1&_force_redirect=1';
+    }
+    
+    
+    if (auto === 'true') {
+      // Appending _force_redirect=1 to assist with iOS redirect compatibility and force the app scheme to open the deeplink.
+      window.location.replace(singular_link);
+    }
+    
+  </script>
+  <script src="js/vendor/modernizr-3.11.2.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
